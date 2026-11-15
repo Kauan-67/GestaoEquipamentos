@@ -1,18 +1,35 @@
-## Getting Started
+# 🖥️ Sistema de Gestão de Equipamentos de Laboratório
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+Aplicação CRUD desenvolvida em **Java** com conexão a banco de dados **MySQL** via **JDBC**, estruturada sob os padrões arquiteturais **MVC (Model-View-Controller)** e **DAO (Data Access Object)**.
 
-## Folder Structure
+---
 
-The workspace contains two folders by default, where:
+## 📋 Funcionalidades
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+- **Cadastrar equipamento:** Registra novos itens (computadores, projetores, etc.) validando dados obrigatórios e impedindo números de patrimônio duplicados.
+- **Listar equipamentos:** Exibe todos os equipamentos cadastrados no banco de dados.
+- **Buscar por patrimônio:** Consulta rapidamente um item específico pelo seu número de patrimônio.
+- **Atualizar equipamento:** Permite editar as informações e a situação de um equipamento existente.
+- **Excluir equipamento:** Remove um equipamento do sistema a partir do número de patrimônio.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+---
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+## 🏗️ Estrutura do Projeto
 
-## Dependency Management
-
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+```text
+GestaoEquipamentos/
+├── lib/
+│   └── mysql-connector-j-26.7.0.jar   # Driver JDBC oficial do MySQL
+├── src/
+│   ├── conexao/
+│   │   └── Conexao.java               # Fábrica de conexões com o MySQL
+│   ├── model/
+│   │   └── Equipamento.java           # Classe entidade (molde do equipamento)
+│   ├── dao/
+│   │   └── EquipamentoDAO.java        # Operações SQL (INSERT, SELECT, UPDATE, DELETE)
+│   ├── controller/
+│   │   └── EquipamentoController.java # Regras de negócio e validações
+│   ├── view/
+│   │   └── MenuView.java              # Interface de menu interativo no console
+│   └── App.java                       # Classe principal (ponto de entrada)
+└── bdlaboratorio.sql                  # Script de criação do banco e da tabela
